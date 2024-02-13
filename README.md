@@ -1,6 +1,8 @@
 # PagueMenosDesafio
 
 SCRIPT SQL PARA A CRIÇÃO DAS TABELAS:
+
+
 -- Tabela Loja
 CREATE TABLE Loja (
     Id INT PRIMARY KEY IDENTITY,
