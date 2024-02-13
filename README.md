@@ -1,1 +1,37 @@
 # PagueMenosDesafio
+
+SCRIPT SQL PARA A CRIÇÃO DAS TABELAS:
+-- Tabela Loja
+CREATE TABLE Loja (
+    Id INT PRIMARY KEY IDENTITY,
+    Nome VARCHAR(100) NOT NULL,
+    Endereco VARCHAR(200) NOT NULL,
+    Telefone VARCHAR(20) NOT NULL,
+    CNPJ VARCHAR(20) NOT NULL
+);
+
+-- Tabela Produto
+CREATE TABLE Produto (
+    Id INT PRIMARY KEY IDENTITY,
+    Nome VARCHAR(100) NOT NULL,
+    Descricao VARCHAR(500) NOT NULL,
+    Categoria VARCHAR(50) NOT NULL,
+    Fabricante VARCHAR(50) NOT NULL,
+    Preco DECIMAL(10,2) NOT NULL
+);
+
+-- Tabela Estoque
+CREATE TABLE Estoque (
+    Id INT PRIMARY KEY IDENTITY,
+    LojaId INT NOT NULL FOREIGN KEY REFERENCES Loja(Id),
+    ProdutoId INT NOT NULL FOREIGN KEY REFERENCES Produto(Id),
+    Quantidade INT NOT NULL
+);
+
+-- Tabela Preco
+CREATE TABLE Preco (
+    Id INT PRIMARY KEY IDENTITY,
+    LojaId INT NOT NULL FOREIGN KEY REFERENCES Loja(Id),
+    ProdutoId INT NOT NULL FOREIGN KEY REFERENCES Produto(Id),
+    Valor DECIMAL(10,2) NOT NULL
+);
